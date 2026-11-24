@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script th:src="@{/js/buttonManager.js}" type="module" defer></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Document</title>
+</head>
+<body>
+    <table id="result-table" class="statistics-table">
+        <thead>
+        <tr class="table-header-row">
+            <th>id</th>
+            <th>x</th>
+            <th>y</th>
+            <th>r</th>
+            <th>submit time</th>
+            <th>result</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="result : ${results}">
+            <td th:text="${result.id}"></td>
+            <td th:text="${result.point.x}"></td>
+            <td th:text="${result.point.y}"></td>
+            <td th:text="${result.point.r}"></td>
+            <td th:text="${result.submitTime}"></td>
+            <td th:text="${result.hit}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="statistics-field">
+        <p>Всего выстрелов:</p>
+        <span th:text="${amount}"></span>
+    </div>
+    <div class="statistics-field">
+        <p>Попаданий:</p>
+        <span th:text="${hits}"></span>
+    </div>
+    <div class="statistics-field">
+        <p>Процент попаданий:</p>
+        <span th:text="${hit_percent}"></span>
+    </div>
+    <div class="statistics-field">
+        <p>Последняя очистка:</p>
+        <span th:text="${last_clear}"></span>
+    </div>
+    <div class="button-container">
+        <a th:href="@{/}" class="page-arrow">
+            →
+        </a>
+        <a th:href="@{/statistics}" id="clear-button">
+            CLEAR ALL
+        </a>
+    </div>
+    <div id="clear-modal" class="modal hidden">
+        <button type="button" id="confirm-clear">Подтвердить</button>
+        <button type="button" id="cancel-clear">Отмена</button>
+    </div>
+
+</body>

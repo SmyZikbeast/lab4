@@ -12,12 +12,12 @@ function handleClearButton(buttonId, modalId, confirmId, cancelId){
     })
 
     confirm.addEventListener('click', async (event) => {
-        const response = await fetch('/statistics', {
+        const response = await fetch('/lab4/statistics', {
             method: 'DELETE'
         });
 
         if (response.ok) {
-            window.location.href = '/statistics';
+            window.location.href = '/lab4/statistics';
         }
         clearModal.classList.add('hidden');
     })

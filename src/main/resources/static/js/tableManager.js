@@ -65,7 +65,7 @@ function handleCanvas(){
 }
 
 async function post(x, y, r){
-    const response = await fetch("/submit", {
+    const response = await fetch("/lab4/submit", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -78,7 +78,7 @@ async function post(x, y, r){
     });
 
     if (response.ok) {
-        window.location.href = "/";
+        window.location.href = "/lab4";
     }
 }
 
